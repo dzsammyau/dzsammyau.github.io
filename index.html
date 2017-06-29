@@ -83,6 +83,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml" />
+
 
 
 
@@ -344,9 +346,9 @@
       
         
           
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Django is a powerful Python web framework that can help us develop web applications quickly, so we choose it to build our blogs. </p>
+            <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Django is a powerful Python web framework that can help us develop web applications quickly, so we choose it to build our blogs. </p>
 <p>The part1 will cover how to create a simple blog application using Django. The purpose is to get a general idea of how the framework works, understand how different components interact with each other.</p>
-<h3 id="Installing-Django"><a href="#Installing-Django" class="headerlink" title="Installing Django"></a>Installing Django</h3><p>First we’ll create an isolated Python environment, and then install Django with pip3 if you use python3 like python3.6. You can verify if Python is installed in your computer by typing python3 in the terminal. If not, download Python’s latest version from this <a href="https://www.python.org/downloads/" target="_blank" rel="external">link</a>, and then install it.</p>
+<h2 id="Installing-Django"><a href="#Installing-Django" class="headerlink" title="Installing Django"></a>Installing Django</h2><p>First we’ll create an isolated Python environment, and then install Django with pip3 if you use python3 like python3.6. You can verify if Python is installed in your computer by typing python3 in the terminal. If not, download Python’s latest version from this <a href="https://www.python.org/downloads/" target="_blank" rel="external">link</a>, and then install it.</p>
 <p>Since you’re going to use Python3, you don’t have to install a database. This Python version comes with the SQLite database built in. SQLlite is a lightweight database that you can use with Django for development. If you plan to deploy your application in a production environment, you should use an advanced database, such as PostgreSQL, MySQL or Oracle.</p>
 <p>It’s recommended that you use Virtualenv to create isolated Python environment. So you can use different package versions for different projects, which is far more practical than installing Python packages system-wide. Another advantage of using Virtualenv is that you won’t need any administration privileges to install Python packages. Run this command in your shell to install Virtualenv.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> pip3 install virtualenv</div></pre></td></tr></table></figure>
@@ -362,6 +364,16 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># install the latest version of Django</span></div><div class="line">$ pip3 install Django</div><div class="line"><span class="comment"># install the specify version of Django</span></div><div class="line">$ pip3 install Django==<span class="number">1.11</span><span class="number">.2</span></div></pre></td></tr></table></figure>
 <p>Django will be installed in the Python site packages directory of your virtual environment. Now check if Django has been successfully installed. For that, run python3 command on the terminal and import Django to check its version using these lines of code.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ python3</div><div class="line">&gt;&gt; <span class="keyword">import</span> django</div><div class="line">&gt;&gt; django.VERSION</div><div class="line">(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>, <span class="string">'final'</span>, <span class="number">0</span>)</div><div class="line"><span class="comment"># if you get this output, Django has been successfully installed in your machine.</span></div></pre></td></tr></table></figure>
+<h2 id="Creating-Your-First-Project"><a href="#Creating-Your-First-Project" class="headerlink" title="Creating Your First Project"></a>Creating Your First Project</h2><p>Now we’ll see how to run the development server and also take a look at project settings. Django provides a command that allows you to easily create an initial project file structure.</p>
+<p>(Those are still in you virtual environment, like my_env.)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> django-admin startproject mysite</div></pre></td></tr></table></figure>
+<p>This will create a Django project with the name, mysite. You can open the directory, mysite, in your computer. Open the mysite directory and you’ll see these files. Let’s see what these files are.</p>
+<ul>
+<li>Manage.py<ul>
+<li>a command line utility to interact with your project. It’s a thin wrapper around the Django-admin.py tool. You don’t need to edit this file.</li>
+</ul>
+</li>
+</ul>
 
           
         
@@ -573,6 +585,13 @@
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
