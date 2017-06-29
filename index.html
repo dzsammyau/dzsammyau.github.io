@@ -360,22 +360,22 @@
 <h2 id="Installing-Django"><a href="#Installing-Django" class="headerlink" title="Installing Django"></a>Installing Django</h2><p>First we’ll create an isolated Python environment, and then install Django with pip3 if you use python3 like python3.6. You can verify if Python is installed in your computer by typing python3 in the terminal. If not, download Python’s latest version from this <a href="https://www.python.org/downloads/" target="_blank" rel="external">link</a>, and then install it.</p>
 <p>Since you’re going to use Python3, you don’t have to install a database. This Python version comes with the SQLite database built in. SQLlite is a lightweight database that you can use with Django for development. If you plan to deploy your application in a production environment, you should use an advanced database, such as PostgreSQL, MySQL or Oracle.</p>
 <p>It’s recommended that you use Virtualenv to create isolated Python environment. So you can use different package versions for different projects, which is far more practical than installing Python packages system-wide. Another advantage of using Virtualenv is that you won’t need any administration privileges to install Python packages. Run this command in your shell to install Virtualenv.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> pip3 install virtualenv</span></div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> pip3 install virtualenv</div></pre></td></tr></table></figure>
 <p>After you install Virtualenv, create an isolated environment with this command, this will create a my_env slash directory, including your Python environment.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> virtualenv my_env</span></div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> virtualenv my_env</div></pre></td></tr></table></figure>
 <p>Any Python libraries you install while your virtual environment is active will go into this directory. Then run this command to activate your virtual environment.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> my_env/bin/activate</span></div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> source my_env/bin/activate</div></pre></td></tr></table></figure>
 <p>The shell prompt will include the name of the active virtual environment enclosed in parenthesis, like this:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(my_env) ...</div></pre></td></tr></table></figure>
 <p>You can deactivate your environment any time with the deactivate command.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> deactivate</span></div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> deactivate</div></pre></td></tr></table></figure>
 <p>Now let’s see how to install Django with pip3. (This is all in the virtual environment.)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># install the latest version of Django</span></div><div class="line">$ pip3 install Django</div><div class="line"><span class="comment"># install the specify version of Django</span></div><div class="line">$ pip3 install Django==<span class="number">1.11</span><span class="number">.2</span></div></pre></td></tr></table></figure>
 <p>Django will be installed in the Python site packages directory of your virtual environment. Now check if Django has been successfully installed. For that, run python3 command on the terminal and import Django to check its version using these lines of code.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ python3</div><div class="line">&gt;&gt; <span class="keyword">import</span> django</div><div class="line">&gt;&gt; django.VERSION</div><div class="line">(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>, <span class="string">'final'</span>, <span class="number">0</span>)</div><div class="line"><span class="comment"># if you get this output, Django has been successfully installed in your machine.</span></div></pre></td></tr></table></figure>
 <h2 id="Creating-Your-First-Project"><a href="#Creating-Your-First-Project" class="headerlink" title="Creating Your First Project"></a>Creating Your First Project</h2><p>Now we’ll see how to run the development server and also take a look at project settings. Django provides a command that allows you to easily create an initial project file structure.</p>
 <p>(Those are still in you virtual environment, like my_env.)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> django-admin startproject mysite</span></div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> django-admin startproject mysite</div></pre></td></tr></table></figure>
 <p>This will create a Django project with the name, mysite. You can open the directory, mysite, in your computer. Open the mysite directory and you’ll see these files. Let’s see what these files are.</p>
 <ul>
 <li>Manage.py<ul>
@@ -618,11 +618,11 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://www.linkedin.com/in/%E4%B8%9C-%E9%99%86-2b6811a6/" target="_blank" title="LinkLabel">
+                <a href="https://www.linkedin.com/in/%E4%B8%9C-%E9%99%86-2b6811a6/" target="_blank" title="Linkedin">
                   
-                    <i class="fa fa-fw fa-globe"></i>
+                    <i class="fa fa-fw fa-weibo"></i>
                   
-                  LinkLabel
+                  Linkedin
                 </a>
               </span>
             
