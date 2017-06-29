@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -150,7 +150,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -200,7 +200,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
           </a>
         </li>
       
@@ -210,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -282,7 +302,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T22:29:17+10:00">
                 2017-06-29
@@ -336,7 +356,7 @@
 <p>You can deactivate your environment any time with the deactivate command.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> deactivate</div></pre></td></tr></table></figure>
 <p>Now let’s see how to install Django with pip3. (This is all in the virtual environment.)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> install the latest version of Django</div><div class="line"><span class="meta">$</span> pip3 install Django</div><div class="line"><span class="meta">#</span> install the specify version of Django</div><div class="line"><span class="meta">$</span> pip3 install Django==1.11.2</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># install the latest version of Django</span></div><div class="line">$ pip3 install Django</div><div class="line"><span class="comment"># install the specify version of Django</span></div><div class="line">$ pip3 install Django==<span class="number">1.11</span><span class="number">.2</span></div></pre></td></tr></table></figure>
 <p>Django will be installed in the Python site packages directory of your virtual environment. Now check if Django has been successfully installed. For that, run python3 command on the terminal and import Django to check its version using these lines of code.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ python3</div><div class="line">&gt;&gt; <span class="keyword">import</span> django</div><div class="line">&gt;&gt; django.VERSION</div><div class="line">(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>, <span class="string">'final'</span>, <span class="number">0</span>)</div><div class="line"><span class="comment"># if you get this output, Django has been successfully installed in your machine.</span></div></pre></td></tr></table></figure>
 
@@ -411,7 +431,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T16:05:09+10:00">
                 2017-06-29
@@ -539,7 +559,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -593,7 +613,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
