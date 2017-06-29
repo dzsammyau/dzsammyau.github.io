@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Accueil
+            Startseite
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -282,7 +282,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T22:29:17+10:00">
                 2017-06-29
@@ -321,7 +321,25 @@
       
         
           
-            
+            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Django is a powerful Python web framework that can help us develop web applications quickly, so we choose it to build our blogs. </p>
+<p>The part1 will cover how to create a simple blog application using Django. The purpose is to get a general idea of how the framework works, understand how different components interact with each other.</p>
+<h3 id="Installing-Django"><a href="#Installing-Django" class="headerlink" title="Installing Django"></a>Installing Django</h3><p>First we’ll create an isolated Python environment, and then install Django with pip3 if you use python3 like python3.6. You can verify if Python is installed in your computer by typing python3 in the terminal. If not, download Python’s latest version from this <a href="https://www.python.org/downloads/" target="_blank" rel="external">link</a>, and then install it.</p>
+<p>Since you’re going to use Python3, you don’t have to install a database. This Python version comes with the SQLite database built in. SQLlite is a lightweight database that you can use with Django for development. If you plan to deploy your application in a production environment, you should use an advanced database, such as PostgreSQL, MySQL or Oracle.</p>
+<p>It’s recommended that you use Virtualenv to create isolated Python environment. So you can use different package versions for different projects, which is far more practical than installing Python packages system-wide. Another advantage of using Virtualenv is that you won’t need any administration privileges to install Python packages. Run this command in your shell to install Virtualenv.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> pip3 install virtualenv</div></pre></td></tr></table></figure>
+<p>After you install Virtualenv, create an isolated environment with this command, this will create a my_env slash directory, including your Python environment.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> virtualenv my_env</div></pre></td></tr></table></figure>
+<p>Any Python libraries you install while your virtual environment is active will go into this directory. Then run this command to activate your virtual environment.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> source my_env/bin/activate</div></pre></td></tr></table></figure>
+<p>The shell prompt will include the name of the active virtual environment enclosed in parenthesis, like this:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(my_env) ...</div></pre></td></tr></table></figure>
+<p>You can deactivate your environment any time with the deactivate command.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> deactivate</div></pre></td></tr></table></figure>
+<p>Now let’s see how to install Django with pip3. (This is all in the virtual environment.)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> install the latest version of Django</div><div class="line"><span class="meta">$</span> pip3 install Django</div><div class="line"><span class="meta">#</span> install the specify version of Django</div><div class="line"><span class="meta">$</span> pip3 install Django==1.11.2</div></pre></td></tr></table></figure>
+<p>Django will be installed in the Python site packages directory of your virtual environment. Now check if Django has been successfully installed. For that, run python3 command on the terminal and import Django to check its version using these lines of code.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ python3</div><div class="line">&gt;&gt; <span class="keyword">import</span> django</div><div class="line">&gt;&gt; django.VERSION</div><div class="line">(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>, <span class="string">'final'</span>, <span class="number">0</span>)</div><div class="line"><span class="comment"># if you get this output, Django has been successfully installed in your machine.</span></div></pre></td></tr></table></figure>
+
           
         
       
@@ -393,7 +411,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posté le</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T16:05:09+10:00">
                 2017-06-29
@@ -521,7 +539,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">articles</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -575,11 +593,11 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Thème -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
