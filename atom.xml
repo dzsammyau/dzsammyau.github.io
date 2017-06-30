@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-30T01:26:52.000Z</updated>
+  <updated>2017-06-30T03:34:12.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="http://yoursite.com/2017/06/29/Building-a-Blog-Part1/"/>
     <id>http://yoursite.com/2017/06/29/Building-a-Blog-Part1/</id>
     <published>2017-06-29T12:29:17.000Z</published>
-    <updated>2017-06-30T01:26:52.000Z</updated>
+    <updated>2017-06-30T03:34:12.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Django is a powerful Python web framework that can help us develop web applications quickly, so we choose it to build our blogs. </p>
 <p>The part1 will cover how to create a simple blog application using Django. The purpose is to get a general idea of how the framework works, understand how different components interact with each other.</p>
 <a id="more"></a>
-<h2 id="Installing-Django"><a href="#Installing-Django" class="headerlink" title="Installing Django"></a>Installing Django</h2><p>First we’ll create an isolated Python environment, and then install Django with pip3 if you use python3 like python3.6. You can verify if Python is installed in your computer by typing python3 in the terminal. If not, download Python’s latest version from this <a href="https://www.python.org/downloads/" target="_blank" rel="external">link</a>, and then install it.</p>
+<h2 id="Installing-Django"><a href="#Installing-Django" class="headerlink" title="Installing Django"></a>Installing Django</h2><p>First we’ll create an isolated Python environment, and then install Django with pip3 if you use python3 like python3.6. You can verify if Python is installed in your computer by typing python3 in the terminal. If not, download Python’s latest version from this <strong><a href="https://www.python.org/downloads/" target="_blank" rel="external">link</a></strong>, and then install it.</p>
 <p>Since you’re going to use Python3, you don’t have to install a database. This Python version comes with the SQLite database built in. SQLlite is a lightweight database that you can use with Django for development. If you plan to deploy your application in a production environment, you should use an advanced database, such as PostgreSQL, MySQL or Oracle.</p>
 <p>It’s recommended that you use Virtualenv to create isolated Python environment. So you can use different package versions for different projects, which is far more practical than installing Python packages system-wide. Another advantage of using Virtualenv is that you won’t need any administration privileges to install Python packages. Run this command in your shell to install Virtualenv.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> pip3 install virtualenv</div></pre></td></tr></table></figure>
@@ -40,14 +40,70 @@
 <p>Now let’s see how to install Django with pip3. (This is all in the virtual environment.)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># install the latest version of Django</span></div><div class="line">$ pip3 install Django</div><div class="line"><span class="comment"># install the specify version of Django</span></div><div class="line">$ pip3 install Django==<span class="number">1.11</span><span class="number">.2</span></div></pre></td></tr></table></figure>
 <p>Django will be installed in the Python site packages directory of your virtual environment. Now check if Django has been successfully installed. For that, run python3 command on the terminal and import Django to check its version using these lines of code.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ python3</div><div class="line">&gt;&gt; <span class="keyword">import</span> django</div><div class="line">&gt;&gt; django.VERSION</div><div class="line">(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>, <span class="string">'final'</span>, <span class="number">0</span>)</div><div class="line"><span class="comment"># if you get this output, Django has been successfully installed in your machine.</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ python3</div><div class="line">&gt;&gt; <span class="keyword">import</span> django</div><div class="line"><span class="comment"># VERSION must be uppercase</span></div><div class="line">&gt;&gt; django.VERSION</div><div class="line">(<span class="number">1</span>, <span class="number">11</span>, <span class="number">2</span>, <span class="string">'final'</span>, <span class="number">0</span>)</div><div class="line"><span class="comment"># if you get this output, Django has been successfully installed in your machine.</span></div></pre></td></tr></table></figure>
 <h2 id="Creating-Your-First-Project"><a href="#Creating-Your-First-Project" class="headerlink" title="Creating Your First Project"></a>Creating Your First Project</h2><p>Now we’ll see how to run the development server and also take a look at project settings. Django provides a command that allows you to easily create an initial project file structure.</p>
 <p>(Those are still in you virtual environment, like my_env.)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> django-admin startproject mysite</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(my_env) $ django-admin startproject mysite</div></pre></td></tr></table></figure>
 <p>This will create a Django project with the name, mysite. You can open the directory, mysite, in your computer. Open the mysite directory and you’ll see these files. Let’s see what these files are.</p>
 <ul>
-<li>Manage.py<ul>
+<li><code>manage.py</code><ul>
 <li>a command line utility to interact with your project. It’s a thin wrapper around the Django-admin.py tool. You don’t need to edit this file.</li>
+</ul>
+</li>
+<li>mysite file:<ul>
+<li><code>__init__.py</code><ul>
+<li>an empty file which tells Python to treat the mysite directory as a Python module.</li>
+</ul>
+</li>
+<li><code>settings.py</code><ul>
+<li>settings and configuration for your project, contains initial default settings.</li>
+</ul>
+</li>
+<li><code>urls.py</code><ul>
+<li>the place where your url patterns live. Each url defined here, is mapping to a view.</li>
+</ul>
+</li>
+<li><code>wgsi.py</code><ul>
+<li>configuration to run your project as a wsgi application.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The generated settings.py file includes a basic configuration to use an SQLite database and the list of Django applications that are routed to our project, by default. We need to create the tables in the database for the initial applications. Now, open your command prompt and change the directory to mysite using this command, and run those command:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> cd mysite </div><div class="line"><span class="meta">#</span> following steps should be done in your mysite directory</div><div class="line"><span class="meta">$</span> python3 manage.py migrate</div><div class="line"><span class="meta">#</span> add a db.sqlite3 file in your mysite directory</div><div class="line"><span class="meta">#</span> create database tables</div></pre></td></tr></table></figure>
+<p>After that, you’ll see an output shows the status that ends with ok. Here, the tables for the initial applications have been created in the database. We’ll talk about the migrate management command later. Now, let’s run the development server.</p>
+<p>Django comes with a lightweight web server to run your code quickly. When you run the Django development server, it keeps checking for changes in your code. It reloads automatically, freeing you from manually reloading it after code changes. However, it might not notice some actions like adding new files to your project, so you’ll have to restart the server manually in some cases.</p>
+<p>Start the development server by typing the command from your project root folder.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> python3 manage.py runserver</div><div class="line"><span class="meta"></span></div><div class="line"># you'll see something like this in your terminal screen</div><div class="line">Performing system checks...</div><div class="line"></div><div class="line">System check identified no issues (0 silenced).</div><div class="line">June 30, 2017 - 02:42:35</div><div class="line">Django version 1.11.2, using settings 'mysite.settings'</div><div class="line">Starting development server at http://127.0.0.1:8000/</div><div class="line">Quit the server with CONTROL-C.</div></pre></td></tr></table></figure>
+<p>Then, open the URL in your browser, you should see a page telling you the project is successfully running. You can indicate Django to run the development server on a custom host and port or tell it you want to run your project, loading a different settings file.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> python3 manage.py runserver 127.0.0.1:8001</div></pre></td></tr></table></figure>
+<p>Now, go to your brower and run <a href="http://127.0.0.1:8001/" target="_blank" rel="external">http://127.0.0.1:8001/</a>, it also works. This comes in handy to deal with multiple environments that require different settings. Remember, this server is only intended for development and is not suitable for production use. In order to deploy Django in a production environment, you should run it as a web server gateway interface, WSGI application using a real web server such as Apache, Gunicorn or UWSGI.</p>
+<p>You can find out more information about how to deploy Django with different web servers at this <strong><a href="https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/" target="_blank" rel="external">link</a></strong>. Open the settings.py file to take a loot at the configuration of our project. There are several settings that Django includes in this file:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># SECURITY WARNING: don't run with debug turned on in production!</span></div><div class="line">DEBUG = <span class="keyword">True</span></div><div class="line"><span class="comment"># debug is a boolean that turns on/off the debug mode of a project</span></div><div class="line"><span class="comment"># if set to true, Django will display detailed error pages when an uncalled exception is thrown by your application. When you move to a production environment, remember you have to set it to false.</span></div><div class="line"></div><div class="line"></div><div class="line">ALLOWED_HOSTS = []</div><div class="line"><span class="comment"># allowed hosts is not applied while debug mode is on or when running tests.</span></div><div class="line"><span class="comment"># Once you're going to move your site to production, and set debug to false, you will have to add yourdomain/host to this setting in order to allow it to serve the Django site.</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># Application definition</span></div><div class="line">INSTALLED_APPS = [</div><div class="line">    <span class="string">'django.contrib.admin'</span>, <span class="comment"># an administration site</span></div><div class="line">    <span class="string">'django.contrib.auth'</span>, <span class="comment"># an suthentication framework</span></div><div class="line">    <span class="string">'django.contrib.contenttypes'</span>, <span class="comment"># can track all of the models installed in your Django-powered project</span></div><div class="line">    <span class="string">'django.contrib.sessions'</span>, <span class="comment"># a session framework</span></div><div class="line">    <span class="string">'django.contrib.messages'</span>, <span class="comment"># a message framework</span></div><div class="line">    <span class="string">'django.contrib.staticfiles'</span>, <span class="comment"># a framework for managing static files</span></div><div class="line">]</div><div class="line"><span class="comment"># There's a setting you'll have to edit in all projects.</span></div><div class="line"><span class="comment"># This setting tells Django which applications are active for this site.</span></div><div class="line"></div><div class="line"></div><div class="line">MIDDLEWARE = [</div><div class="line">    <span class="string">'django.middleware.security.SecurityMiddleware'</span>,</div><div class="line">    <span class="string">'django.contrib.sessions.middleware.SessionMiddleware'</span>,</div><div class="line">    <span class="string">'django.middleware.common.CommonMiddleware'</span>,</div><div class="line">    <span class="string">'django.middleware.csrf.CsrfViewMiddleware'</span>,</div><div class="line">    <span class="string">'django.contrib.auth.middleware.AuthenticationMiddleware'</span>,</div><div class="line">    <span class="string">'django.contrib.messages.middleware.MessageMiddleware'</span>,</div><div class="line">    <span class="string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</span>,</div><div class="line">]</div><div class="line"><span class="comment"># Middleware classes is a tuple containing middlewares to be executed.</span></div><div class="line"></div><div class="line"></div><div class="line">ROOT_URLCONF = <span class="string">'djangoSite.urls'</span></div><div class="line"><span class="comment"># this indicates the Python module where the root URL patterns of your application are defined.</span></div><div class="line"></div><div class="line"></div><div class="line">DATABASES = &#123;</div><div class="line">    <span class="string">'default'</span>: &#123;</div><div class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.sqlite3'</span>,</div><div class="line">        <span class="string">'NAME'</span>: os.path.join(BASE_DIR, <span class="string">'db.sqlite3'</span>),</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment"># Databases is a dictionary containing the settings for all the databases to be used in the project</span></div><div class="line"><span class="comment"># The default configuration uses an SQLite3 database.</span></div><div class="line"></div><div class="line"></div><div class="line">LANGUAGE_CODE = <span class="string">'en-us'</span></div><div class="line"><span class="comment"># Language code defines the default language code for this Django site.</span></div></pre></td></tr></table></figure>
+<p>In Django, a project is considered a Django installation with some settings. And an application is a group of models, views and templates and URLs. Applications interact with the framework to provide some specific functionality so may be reused in various projects. You can think of the project as your website which contains several applications like blog, wiki or forum.</p>
+<p>Now, we’ll create a blog application, from scratch. From your projects root directory, run the commanding command prompt:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> python3 manage.py startapp blog</div><div class="line"><span class="meta">#</span> blog is your file name</div></pre></td></tr></table></figure>
+<p>This will create the basic structure of the application. In the blog directory you’ll find some files. In the migrations, you’ll find the <code>__init__.py</code> file. These are other files:</p>
+<ul>
+<li><code>admin.py</code><ul>
+<li>this is where you register models to include them into the Django administration site. Using the Django admin site is optional.</li>
+</ul>
+</li>
+<li><code>migrations</code><ul>
+<li>this directory will contain database migrations of your application. Migrations allow Django to track your model changes and synchronize our database accordingly.</li>
+</ul>
+</li>
+<li><code>models.py</code><ul>
+<li>data models of your application. All Django applications need to have a models.py file but this file can be left empty.</li>
+</ul>
+</li>
+<li><code>test.py</code><ul>
+<li>this is where you can add tests for your application.</li>
+</ul>
+</li>
+<li><code>view.py</code><ul>
+<li>the logic of your application goes here. Each view receives an http request, processes it and return a response.</li>
 </ul>
 </li>
 </ul>
@@ -68,9 +124,10 @@
     <link href="http://yoursite.com/2017/06/29/hello-world/"/>
     <id>http://yoursite.com/2017/06/29/hello-world/</id>
     <published>2017-06-29T06:05:09.000Z</published>
-    <updated>2017-06-29T06:05:09.000Z</updated>
+    <updated>2017-06-30T01:58:50.000Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<a id="more"></a>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -83,7 +140,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
